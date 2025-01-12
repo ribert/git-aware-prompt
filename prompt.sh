@@ -26,8 +26,12 @@ find_git_dirty() {
   fi
 }
 
+get_context() {
+  context=$(kubectl config current-context)
+}
+
 ##PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
-PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
+PROMPT_COMMAND="find_git_branch; find_git_dirty; get_context; $PROMPT_COMMAND"
 #
 ## Default Git enabled prompt with dirty state
 ## export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
